@@ -27,7 +27,7 @@ public class Main {
 	}
 
 	/**
-	 * 동적계획법 재귀 메소드
+	 * 다이나믹 프로그래밍 재귀 메소드
 	 * 
 	 * @param X
 	 * @return
