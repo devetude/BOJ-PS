@@ -6,7 +6,7 @@ import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 /**
- * 백준 온라인 저지 10824번 (네수) 문제풀이
+ * 백준 온라인 저지 10824번 (네 수) 문제풀이
  * 
  * @see https://www.acmicpc.net/problem/10824
  * @author devetude
