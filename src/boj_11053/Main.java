@@ -47,30 +47,31 @@ public class Main {
 	 * 
 	 * @param N
 	 * @param nums
-	 * @param index
+	 * @param startIndex
 	 * @return
 	 */
-	private static int search(int N, int[] nums, int index) {
-		// 기저조건 : 인덱스가 배열의 끝에 도달했을 경우 1을 리턴
-		if (index == N - 1) {
+	private static int search(int N, int[] nums, int startIndex) {
+		// 기저조건 : 시작 인덱스가 배열의 끝에 도달했을 경우 1을 리턴
+		if (startIndex == N - 1) {
 			return 1;
 		}
 
 		// 캐시 값이 있는 경우 캐시 값을 사용
-		if (cache[index] != 0) {
-			return cache[index];
+		if (cache[startIndex] != 0) {
+			return cache[startIndex];
 		}
 
 		// 초기 가장 긴 수열의 길이는 1
 		int maxLen = 1;
 
 		// 루프를 돌면서 가장 긴 증가 수열의 길이를 검색
-		for (int i = index + 1; i < N; i++) {
-			if (nums[index] < nums[i]) {
+		for (int i = startIndex + 1; i < N; i++) {
+			if (nums[startIndex] < nums[i]) {
 				maxLen = Math.max(maxLen, search(N, nums, i) + 1);
 			}
 		}
 
-		return maxLen;
+		// 캐시에 결과 값을 저장하고 리턴
+		return cache[startIndex] = maxLen;
 	}
 }
