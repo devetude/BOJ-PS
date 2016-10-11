@@ -1,4 +1,5 @@
 package boj_10844;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
