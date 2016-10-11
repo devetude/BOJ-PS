@@ -1,12 +1,11 @@
 package boj_10844;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 /**
  * 백준 온라인 저지 10844번 (쉬운 계단 수) 문제풀이
  * 
- * @see https://www.acmicpc.net/problem/10844
+ * @see https://www.acmicpc.net/submit/10844
  * @author devetude
  */
 public class Main {
