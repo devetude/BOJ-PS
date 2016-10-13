@@ -1,10 +1,12 @@
+package boj_2591;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 /**
- * 백준 온라인 저지 번 () 문제풀이
+ * 백준 온라인 저지 2591번 (숫자카드) 문제풀이
  *
- * @see https://www.acmicpc.net/problem/
+ * @see https://www.acmicpc.net/problem/2591
  * @author devetude
  */
 public class Main {

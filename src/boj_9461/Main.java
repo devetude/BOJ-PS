@@ -23,7 +23,7 @@ public class Main {
 		cache[1] = cache[2] = cache[3] = 1;
 
 		for (int i = 0; i < T; i++) {
-			// 파도반 수열을 결과 값을 버퍼에 저장
+			// 파도반 수열의 결과 값을 버퍼에 저장
 			sb.append(padovan(Integer.parseInt(br.readLine()))).append("\n");
 		}
 
