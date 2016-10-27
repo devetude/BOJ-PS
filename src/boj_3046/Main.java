@@ -20,5 +20,6 @@ public class Main {
 		int S = Integer.parseInt(st.nextToken());
 
 		System.out.println(2 * S - R1);
+
 	}
 }
