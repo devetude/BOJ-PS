@@ -35,7 +35,6 @@ public class Main {
 			// n의 약수와 그 부분합을 구함
 			for (int i = 1; i < n; i++) {
 				if (n % i == 0) {
-					System.out.println(i);
 					sum += i;
 
 					// 합이 n 보다 클 경우 멈춤 (가지치기)
