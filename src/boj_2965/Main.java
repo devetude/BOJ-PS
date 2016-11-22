@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 /**
  * 백준 온라인 저지 2965번 (캥거루 세마리) 문제풀이
  *
- * @see https://www.acmicpc.net/problem/
+ * @see https://www.acmicpc.net/problem/2965
  * @author devetude
  */
 public class Main {
