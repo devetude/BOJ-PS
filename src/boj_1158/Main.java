@@ -29,15 +29,18 @@ public class Main {
 		}
 
 		StringBuilder sb = new StringBuilder();
+		sb.append("<");
 
 		// 루프를 돌며 결과 값을 만듬
-		while (!queue.isEmpty()) {
+		while (queue.size() != 1) {
 			for (int i = 1; i < M; i++) {
 				queue.add(queue.poll());
 			}
 
-			sb.append(queue.poll());
+			sb.append(queue.poll()).append(", ");
 		}
+
+		sb.append(queue.poll()).append(">");
 
 		// 결과 값 출력
 		System.out.println(sb.toString());
