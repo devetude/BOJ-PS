@@ -22,7 +22,7 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-		// 입접 행렬을 만듬
+		// 인접 행렬을 만듬
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 		adjacencyMatrix = new int[N + 1][N + 1];
@@ -43,7 +43,7 @@ public class Main {
 		// 연결 요소의 갯수 저장 변수
 		int connectedFactorCnt = 0;
 
-		// 인접행렬 dfs 탐색
+		// 인접 행렬 dfs 탐색
 		for (int v = 1; v <= N; v++) {
 			if (!isVisited[v]) {
 				dfs(v);
