@@ -35,7 +35,7 @@ public class Main {
 		br.close();
 
 		// 결과 값 출력
-		// (가장 싼 버거 가격 + 가장 싼 음료 가격 - 50)
+		// (가장 싼 버거 가격 + 가장 싼 음료수 가격 - 50)
 		System.out.println(minBurgerPrice + minBeveragePrice - 50);
 	}
 }
