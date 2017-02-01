@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
 public class Main {
 	// 결과 문자열 상수
 	private static final String ADVERTISE = "advertise";
-	private static final String DOSE_NOT_MATTER = "dose not matter";
+	private static final String DOSE_NOT_MATTER = "does not matter";
 	private static final String DO_NOT_ADVERTISE = "do not advertise";
 
 	// 개행 문자열 상수
