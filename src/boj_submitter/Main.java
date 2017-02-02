@@ -7,7 +7,7 @@ package boj_submitter;
  */
 public class Main {
 	// 제출 문제 번호 상수
-	private static final String PROBLEM_ID = "3034";
+	private static final String PROBLEM_ID = "8979";
 
 	/**
 	 * 메인 메소드
