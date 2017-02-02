@@ -1,10 +1,13 @@
-package boj_submitter;
+package controllers;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+import res.Setting;
+import res.URL;
 
 /**
  * 처리 클래스
@@ -20,16 +23,6 @@ public class Process {
 	 * @return
 	 */
 	public static boolean signIn(String id, String password) {
-		if (id.length() == 0) {
-			System.out.print("백준 온라인 저지 아이디를 입력해주세요 : ");
-			id = new Scanner(System.in).nextLine();
-		}
-
-		if (password.length() == 0) {
-			System.out.print("백준 온라인 저지 비밀번호를 입력해주세요 : ");
-			password = new Scanner(System.in).nextLine();
-		}
-
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("login_user_id", id);
 		params.put("login_password", password);

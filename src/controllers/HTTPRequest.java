@@ -1,4 +1,4 @@
-package boj_submitter;
+package controllers;
 
 import java.util.ArrayList;
 import java.util.Iterator;

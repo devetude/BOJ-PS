@@ -1,4 +1,4 @@
-package boj_submitter;
+package res;
 
 /**
  * url 클래스
