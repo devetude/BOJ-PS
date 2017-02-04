@@ -1,6 +1,6 @@
 package boj_submitter;
 
-import views.MainFrame;
+import boj_submitter.views.MainFrame;
 
 /**
  * 백준 온라인 저지 답안 제출기 메인 클래스

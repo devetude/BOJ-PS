@@ -1,4 +1,4 @@
-package res;
+package boj_submitter.res;
 
 /**
  * 사용자 클래스

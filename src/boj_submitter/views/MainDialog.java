@@ -1,4 +1,4 @@
-package views;
+package boj_submitter.views;
 
 import java.awt.Dialog;
 import java.awt.Dimension;

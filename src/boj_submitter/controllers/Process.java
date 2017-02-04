@@ -1,4 +1,4 @@
-package controllers;
+package boj_submitter.controllers;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import res.Setting;
-import res.URL;
+import boj_submitter.res.Setting;
+import boj_submitter.res.URL;
 
 /**
  * 처리 클래스

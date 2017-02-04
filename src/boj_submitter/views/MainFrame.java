@@ -1,4 +1,4 @@
-package views;
+package boj_submitter.views;
 
 import java.awt.Button;
 import java.awt.Dimension;
@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import controllers.Process;
-import res.User;
+import boj_submitter.controllers.Process;
+import boj_submitter.res.User;
 
 public class MainFrame extends Frame {
 	private static final int WIDTH = 300;

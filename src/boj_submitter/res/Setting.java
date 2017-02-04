@@ -1,4 +1,4 @@
-package res;
+package boj_submitter.res;
 
 /**
  * 환경설정 클래스
