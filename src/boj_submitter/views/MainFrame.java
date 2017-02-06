@@ -34,8 +34,6 @@ public class MainFrame extends Frame {
 	private TextField bojIDTextField;
 	private TextField bojPasswordTextField;
 
-	private MainSpinnerPanel mainSpinnerPanel;
-
 	public MainFrame() {
 		this.setTitle(FRAME_TITLE);
 		this.setResizable(false);
@@ -77,9 +75,6 @@ public class MainFrame extends Frame {
 		this.add(submitButton);
 
 		this.addWindowListener(new MainWindowListener());
-
-		mainSpinnerPanel = new MainSpinnerPanel(WIDTH, HEIGHT);
-		this.add(mainSpinnerPanel);
 
 		this.setVisible(true);
 	}
@@ -124,8 +119,6 @@ public class MainFrame extends Frame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			mainSpinnerPanel.setVisible(true);
-
 			String problemID = problemIDTextField.getText();
 			String source = Process.getSource(problemID);
 
