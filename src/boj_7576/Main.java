@@ -35,6 +35,7 @@ public class Main {
 		Queue<Point> queue = new LinkedList<>();
 		int[][] box = new int[N][M];
 		int[][] isChecked = new int[N][M];
+		int notRipedCnt = 0;
 
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
@@ -48,6 +49,11 @@ public class Main {
 				if (status == RIPE_STATUS) {
 					queue.offer(new Point(i, j));
 					isChecked[i][j] = CHECKED;
+				}
+
+				else if (status == NOT_RIPE_STAUS) {
+					// 익지 않은 토마토의 갯수 1 증가
+					notRipedCnt++;
 				}
 			}
 		}
@@ -70,6 +76,9 @@ public class Main {
 
 						// 큐에 해당 좌표를 저장
 						queue.offer(new Point(nx, ny));
+
+						// 익지 않은 토마토의 갯수 1 감소
+						notRipedCnt--;
 					}
 				}
 			}
@@ -79,18 +88,17 @@ public class Main {
 		// 최대 일 수 저장 변수
 		int maxDays = 0;
 
-		// 체크 배열의 최대 깊이 값을 구함
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < M; j++) {
-				maxDays = Math.max(maxDays, isChecked[i][j]);
-			}
+		// 아직 익지 않은 토마토가 남아있는 경우 문제의 조건에서 -1로 처리
+		if (notRipedCnt != 0) {
+			maxDays = -1;
 		}
 
-		// 아직 익지 않은 토마토가 남아있는 경우 문제의 조건에서 -1로 처리
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < M; j++) {
-				if (box[i][j] == NOT_RIPE_STAUS && isChecked[i][j] == NOT_CHECKED)
-					maxDays = -1;
+		else {
+			// 체크 배열의 최대 깊이 값을 구함
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < M; j++) {
+					maxDays = Math.max(maxDays, isChecked[i][j]);
+				}
 			}
 		}
 
