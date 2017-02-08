@@ -17,18 +17,18 @@ public class Main {
 
 	// 피보나치 최대 인덱스 상수
 	// (문제의 조건에서 n이 1,000,000,000 보다 작거나 같다고 했음으로 fibo[44] = 701,408,733까지만 구함)
-	private static final int FIBO_SIZE = 45;
+	private static final int MAX_FIBO_SIZE = 45;
 
 	// 피보나치 배열
 	private static int[] fibo = null;
 
 	public static void main(String args[]) throws Exception {
 		// 피보나치 배열 초기화
-		fibo = new int[FIBO_SIZE];
+		fibo = new int[MAX_FIBO_SIZE];
 		fibo[0] = 0;
 		fibo[1] = 1;
 
-		for (int i = 2; i < FIBO_SIZE; i++) {
+		for (int i = 2; i < MAX_FIBO_SIZE; i++) {
 			fibo[i] = fibo[i - 1] + fibo[i - 2];
 		}
 
@@ -44,7 +44,7 @@ public class Main {
 
 			// 검색 시작 인덱스 초기화
 			// (이미 구해놓은 피보나치 수 중 가장 큰 피보나치 수 부터 검색)
-			int searchStartIdx = FIBO_SIZE - 1;
+			int searchStartIdx = MAX_FIBO_SIZE - 1;
 
 			// 결과 피보나치 수들을 담을 배열리스트 초기화
 			ArrayList<Integer> nums = new ArrayList<>();
