@@ -25,7 +25,7 @@ public class Main {
 		// 사용자 객체 배열 초기화
 		User[] users = new User[N];
 
-		// 이름과 나이를 받아서 사용자 객체로 만들어서 배열 리스트에 저장
+		// 이름과 나이를 받아서 사용자 객체로 만들어 배열에 저장
 		for (int i = 0; i < N; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 			users[i] = new User(i, Integer.parseInt(st.nextToken()), st.nextToken());
