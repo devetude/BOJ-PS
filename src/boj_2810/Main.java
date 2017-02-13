@@ -38,7 +38,15 @@ public class Main {
 			}
 		}
 
-		// 결과 값 출력
-		System.out.println(cnt);
+		// 컵 홀더에 놓을 수 있는 최대 사람 수가 좌석 수 보다 큰 경우
+		if (cnt > N) {
+			// 컵 홀더에 놓을 수 있는 최대 사람 수는 좌석 수와 같음
+			System.out.println(N);
+		}
+
+		else {
+			// 결과 값 출력
+			System.out.println(cnt);
+		}
 	}
 }
