@@ -1,6 +1,7 @@
 package boj_1110;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 /**
  * 백준 온라인 저지 1110번 (더하기 사이클) 문제풀이
@@ -10,10 +11,11 @@ import java.util.Scanner;
  */
 public class Main {
 	public static void main(String[] args) throws Exception {
-		// 입력을 받음
-		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt();
-		sc.close();
+		// 버퍼를 통해 입력 값을 받음
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(br.readLine());
+		
+		br.close();
 
 		int a = N / 10;
 		int aTmp = a;
