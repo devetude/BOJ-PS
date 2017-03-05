@@ -48,16 +48,14 @@ public class Main {
 
 		// 루프를 돌며 dfs 탐색
 		for (int u = 0; u < N; u++) {
-			dfs(u);
+			dfs(u, true);
 
 			for (int v = 0; v < N; v++) {
-				if (u != v || isVisited[v] == 2) {
-					// dfs 탐색 결과 v에서 v2로 이동이 가능한 경우
-					isExist[u][v] = 1;
+				// 결과 저장
+				isExist[u][v] = isVisited[v];
 
-					// 다음 시작 지점 탐색을 위해 방문 여부를 초기화
-					isVisited[v] = 0;
-				}
+				// 다음 시작 지점 탐색을 위해 방문 여부를 초기화
+				isVisited[v] = 0;
 			}
 		}
 
@@ -80,13 +78,16 @@ public class Main {
 	 * dfs 메소드
 	 * 
 	 * @param u
+	 * @param isStartPoint
 	 */
-	private static void dfs(int u) {
-		isVisited[u] += 1;
+	private static void dfs(int u, boolean isStartPoint) {
+		if (!isStartPoint) {
+			isVisited[u] = 1;
+		}
 
 		for (int v = 0; v < N; v++) {
-			if (matrix[u][v] == 1 && isVisited[v] < 2) {
-				dfs(v);
+			if (matrix[u][v] == 1 && isVisited[v] == 0) {
+				dfs(v, false);
 			}
 		}
 	}
