@@ -47,15 +47,17 @@ public class Main {
 		int[][] isExist = new int[N][N];
 
 		// 루프를 돌며 dfs 탐색
-		for (int v = 0; v < N; v++) {
-			dfs(v);
+		for (int u = 0; u < N; u++) {
+			dfs(u);
 
-			for (int v2 = 0; v2 < N; v2++) {
-				// dfs 탐색 결과를 결과 값 저장 배열에 저장
-				isExist[v][v2] = isVisited[v2];
+			for (int v = 0; v < N; v++) {
+				if (u != v || isVisited[v] == 2) {
+					// dfs 탐색 결과 v에서 v2로 이동이 가능한 경우
+					isExist[u][v] = 1;
 
-				// 다음 시작 지점 탐색을 위해 방문 여부를 초기화
-				isVisited[v2] = 0;
+					// 다음 시작 지점 탐색을 위해 방문 여부를 초기화
+					isVisited[v] = 0;
+				}
 			}
 		}
 
@@ -80,10 +82,10 @@ public class Main {
 	 * @param u
 	 */
 	private static void dfs(int u) {
-		isVisited[u] = 1;
+		isVisited[u] += 1;
 
 		for (int v = 0; v < N; v++) {
-			if (matrix[u][v] == 1 && isVisited[v] == 0) {
+			if (matrix[u][v] == 1 && isVisited[v] < 2) {
 				dfs(v);
 			}
 		}
