@@ -17,7 +17,7 @@ public class Main {
 	private static final char NEW_LINE = '\n';
 
 	// 방향 배열 상수 (동, 서, 남, 북)
-	private static final int[][] directions = { { 0, 1 }, { 0, -1 }, { -1, 0 }, { 1, 0 } };
+	private static final int[][] DIRECTIONS = { { 0, 1 }, { 0, -1 }, { -1, 0 }, { 1, 0 } };
 
 	// 방향 행, 열 상수
 	private static final int X = 1;
@@ -70,9 +70,9 @@ public class Main {
 						while (!queue.isEmpty()) {
 							Point current = queue.poll();
 
-							for (int[] direction : directions) {
-								int nextY = current.y + direction[Y];
-								int nextX = current.x + direction[X];
+							for (final int[] DIRECTION : DIRECTIONS) {
+								int nextY = current.y + DIRECTION[Y];
+								int nextX = current.x + DIRECTION[X];
 
 								if (0 <= nextY && nextY < N && 0 <= nextX && nextX < M) {
 									if (isExist[nextY][nextX] && !isVisited[nextY][nextX]) {
