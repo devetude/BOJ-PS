@@ -29,7 +29,7 @@ public class Main {
 
 		// 초기에 촌수 저장 배열의 모든 값을 촌수 계산 불가로 설정
 		for (int[] distance : distances) {
-			Arrays.fill(distances, INFINITE);
+			Arrays.fill(distance, INFINITE);
 		}
 
 		while (m-- > 0) {
