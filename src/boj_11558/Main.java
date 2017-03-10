@@ -13,6 +13,9 @@ public class Main {
 	// 개행 문자열 상수
 	private static final String NEW_LINE = "\n";
 
+	// 방문 여부 표시 상수
+	private static final int IS_ALREADY_VISITED = -1;
+
 	public static void main(String args[]) throws Exception {
 		// 버퍼를 통해 입력 값을 받음
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,12 +34,8 @@ public class Main {
 				links[i] = Integer.parseInt(br.readLine());
 			}
 
-			// 방문 여부 저장 배열 초기화
-			boolean[] isVisited = new boolean[N + 1];
-
 			// 현재 방문점 저장 변수 초기화
 			int current = 1;
-			isVisited[current] = true;
 
 			// 최소 횟수 저장 변수 초기화
 			int K = 0;
@@ -44,12 +43,18 @@ public class Main {
 			// 주경이를 찾을 때 까지 반복
 			while (current != N) {
 				// 아직 방문하지 않은 경우
-				if (!isVisited[links[current]]) {
+				if (links[current] != IS_ALREADY_VISITED) {
 					// 횟수 1 증가
 					K++;
 
-					// 방문 여부 변경 및 다음 지목 상대를 방문점으로 변경
-					isVisited[current = links[current]] = true;
+					// 다음 사람을 저장
+					int next = links[current];
+
+					// 현재 사람 방문 여부 변경
+					links[current] = IS_ALREADY_VISITED;
+
+					// 현재 사람을 다음 사람으로 변경
+					current = next;
 				}
 
 				else {
