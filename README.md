@@ -1,4 +1,4 @@
-#* 백준 온라인 저지란?
+# * 백준 온라인 저지란?
 [![](https://d2gd6pc034wcta.cloudfront.net/images/logo.png)](https://www.acmicpc.net)
 
 **"백준 온라인 저지"**는 프로그래밍 문제를 풀고 온라인으로 채점받을 수 있는 곳입니다.
