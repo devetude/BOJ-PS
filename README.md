@@ -1,4 +1,4 @@
-# * 백준 온라인 저지란?
+# 백준 온라인 저지란?
 [![](https://d2gd6pc034wcta.cloudfront.net/images/logo.png)](https://www.acmicpc.net)
 
 **"백준 온라인 저지"**는 프로그래밍 문제를 풀고 온라인으로 채점받을 수 있는 곳입니다.
@@ -7,7 +7,7 @@
 > - 사용 가능한 프로그래밍 언어는 총 **52**가지입니다.
 > - 한국어로 번역되어있는 **12325**개 이상의 문제 보유하고 있습니다.
 
-# * 채점 환경
+# 채점 환경
 백준 온라인 저지의 **"Java" 채점 환경**은 아래와 같습니다.
 > **Java:**
 > - 컴파일 실행 옵션 : **javac -J-Xms128m -J-Xmx512m -encoding UTF-8 Main.java**
@@ -15,7 +15,7 @@
 > - 시간제한 : **+5초**
 > - 메모리제한 : **+512MB**
 
-# * 채점 결과
+# 채점 결과
 백준 온라인 저지의 **채점 결과**는 아래와 같습니다.
 >
 <ul>
@@ -33,7 +33,7 @@
   <li><span style="color: #004488">컴파일 에러</span> : 컴파일 하지 못한 경우입니다. Warning Message는 에러 메시지가 아닙니다. 채점 결과를 클릭하면 컴파일 에러 메시지를 볼 수 있습니다.</li>
 </ul>
       
-# * 1000번 예제 소스
+# 1000번 예제 소스
 Java를 이용한 **1000번 문제 풀이**는 아래와 같습니다.
 ```java
 import java.util.*;
@@ -49,7 +49,7 @@ public class Main {
 }
 ```
 
-# * BOJ-PSJ 구성
+# BOJ-PSJ 구성
 "BOJ-PSJ"**는 다음과 같이 구성되어 있습니다. 소스코드를 보시려면 **"BOJ-PSJ > src > boj_문제번호 > Main.java"**를 보시면 됩니다.
 ```text
 BOJ-PSJ
@@ -66,10 +66,10 @@ BOJ-PSJ
 ...
 ```
 
-# * 라이센스
+# 라이센스
 본 프로젝트는 Apache 2.0 License를 따릅니다. http://www.apache.org/licenses/LICENSE-2.0
 
-# * 문의사항
+# 문의사항
 기타 문의사항이 있으실 경우 아래의 **문의 수단**으로 연락해주세요.
 > **문의 수단:**
 > - 메일 : **devetude@naver.com** 또는 **devetude@gmail.com**
