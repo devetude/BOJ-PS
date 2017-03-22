@@ -54,14 +54,14 @@ public class Main {
 		int D = Integer.parseInt(br.readLine());
 
 		// 인접 리스트를 돌며 제거해야 할 노드를 제거함
-		for (ArrayList<Integer> adjacencyList : adjacencyLists) {
+		MAIN_LOOP: for (ArrayList<Integer> adjacencyList : adjacencyLists) {
 			int adjacencyListSize = adjacencyList.size();
 
 			for (int i = 0; i < adjacencyListSize; i++) {
 				if (adjacencyList.get(i) == D) {
 					adjacencyList.remove(i);
 
-					break;
+					break MAIN_LOOP;
 				}
 			}
 		}
