@@ -56,25 +56,21 @@ public class Main {
 			Queue<Integer> queue = new LinkedList<>();
 			queue.offer(i);
 
+			// 해킹 가능한 컴퓨터 숫자 저장 변수 초기화
+			int cnt = 0;
+
 			// bfs 실행
 			while (!queue.isEmpty()) {
 				int current = queue.poll();
 
 				for (int next : lists[current]) {
 					if (!isVisited[next]) {
+						cnt++;
+
 						isVisited[next] = true;
 
 						queue.offer(next);
 					}
-				}
-			}
-
-			// 해킹 가능한 컴퓨터 숫자 저장 변수 초기화
-			int cnt = 0;
-
-			for (int j = 1; j <= N; j++) {
-				if (isVisited[j]) {
-					cnt++;
 				}
 			}
 
