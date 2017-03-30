@@ -58,7 +58,7 @@ public class Main {
 
 		// 우선순위 큐 객체 변수 초기화
 		PriorityQueue<Bridge> priorityQueue = new PriorityQueue<>();
-		priorityQueue.offer(new Bridge(S, 0));
+		priorityQueue.offer(new Bridge(S, MAX_C));
 
 		// 결과 값 저장 변수 초기화
 		int res = MAX_C;
