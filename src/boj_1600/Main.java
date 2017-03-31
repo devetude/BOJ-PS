@@ -103,12 +103,25 @@ public class Main {
 		System.out.println(-1);
 	}
 
+	/**
+	 * 지점 이너 클래스
+	 * 
+	 * @author devetude
+	 */
 	private static class Point {
 		public int row;
 		public int col;
 		public int k;
 		public int d;
 
+		/**
+		 * 생성자
+		 * 
+		 * @param row
+		 * @param col
+		 * @param k
+		 * @param d
+		 */
 		public Point(int row, int col, int k, int d) {
 			this.row = row;
 			this.col = col;
