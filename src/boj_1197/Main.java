@@ -85,11 +85,11 @@ public class Main {
 	 * @return
 	 */
 	private static boolean union(int a, int b) {
-		int aParents = find(a);
-		int bParents = find(b);
+		int aParent = find(a);
+		int bParent = find(b);
 
-		if (aParents != bParents) {
-			parents[bParents] = aParents;
+		if (aParent != bParent) {
+			parents[bParent] = aParent;
 
 			return true;
 		}
