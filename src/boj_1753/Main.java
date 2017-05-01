@@ -52,10 +52,6 @@ public class Main {
 		Arrays.fill(distances, INFINITE);
 		distances[K] = 0;
 
-		// 방문 여부 저장 배열 초기화
-		boolean[] isVisited = new boolean[V + 1];
-		isVisited[0] = true;
-
 		// 우선순위큐 객체 변수 초기화
 		PriorityQueue<Node> priorityQueue = new PriorityQueue<>();
 		priorityQueue.offer(new Node(K, 0));
