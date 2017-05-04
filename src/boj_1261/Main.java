@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  * @author devetude
  */
 public class Main {
-	// 개행 문자열 상수
+	// 공백 문자열 상수
 	private static final String SPACE = " ";
 
 	// 방향 배열 상수
