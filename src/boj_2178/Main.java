@@ -13,13 +13,8 @@ import java.util.StringTokenizer;
  * @author devetude
  */
 public class Main {
-	// 이동할 수 없는 칸을 나타내는 문자 상수
-	private static final char BLOCKED = '0';
-
-	// 방향 배열 상수 (동, 서, 남, 북)
-	private static final int[][] directions = { { 0, 1 }, { 0, -1 }, { -1, 0 }, { 1, 0 } };
-
-	// 방향 배열 행, 열 상수
+	// 방향 배열 상수
+	private static final int[][] DIRECTIONS = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
 	private static final int ROW = 0;
 	private static final int COL = 1;
 
@@ -31,41 +26,40 @@ public class Main {
 		int M = Integer.parseInt(st.nextToken());
 
 		// 지도 배열 초기화
-		char[][] map = new char[N][M];
+		int[][] map = new int[N][M];
 
-		// 루프를 돌며 지도를 만듬
-		for (int i = 0; i < N; i++) {
+		for (int row = 0; row < N; row++) {
 			String line = br.readLine();
 
-			for (int j = 0; j < M; j++) {
-				map[i][j] = line.charAt(j);
+			for (int col = 0; col < M; col++) {
+				map[row][col] = Character.getNumericValue(line.charAt(col));
 			}
 		}
 
 		br.close();
 
-		// 방문점 깊이 저장 배열 초기화
+		// 방문 여부 저장 배열 초기화
 		int[][] isVisited = new int[N][M];
 		isVisited[0][0] = 1;
 
 		// 큐 객체 변수 초기화
 		Queue<Point> queue = new LinkedList<>();
-
-		// 시작점을 큐에 담음
 		queue.offer(new Point(0, 0));
 
-		// dfs 탐색 실행
+		// bfs 실행
 		while (!queue.isEmpty()) {
 			Point current = queue.poll();
 
-			for (int[] direction : directions) {
-				int nextRow = current.row + direction[ROW];
-				int nextCol = current.col + direction[COL];
+			for (final int[] DIRECTION : DIRECTIONS) {
+				int nextRow = current.row + DIRECTION[ROW];
+				int nextCol = current.col + DIRECTION[COL];
 
 				if (0 <= nextRow && nextRow < N && 0 <= nextCol && nextCol < M) {
-					if (isVisited[nextRow][nextCol] == 0 && map[nextRow][nextCol] != BLOCKED) {
-						isVisited[nextRow][nextCol] = isVisited[current.row][current.col] + 1;
-						queue.offer(new Point(nextRow, nextCol));
+					if (map[nextRow][nextCol] == 1) {
+						if (isVisited[nextRow][nextCol] == 0) {
+							isVisited[nextRow][nextCol] = isVisited[current.row][current.col] + 1;
+							queue.offer(new Point(nextRow, nextCol));
+						}
 					}
 				}
 			}
