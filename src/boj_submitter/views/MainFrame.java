@@ -42,7 +42,7 @@ public class MainFrame extends Frame {
 		this.setBounds((windowSize.width - WIDTH) / 2, (windowSize.height - HEIGHT) / 2, WIDTH, HEIGHT);
 
 		Label problemIDLabel = new Label(PROBLEM_ID_LABEL);
-		problemIDLabel.setBounds(25, 50, 90, 20);
+		problemIDLabel.setBounds(20, 50, 95, 20);
 		problemIDLabel.setFont(new Font(null, Font.PLAIN, 18));
 		this.add(problemIDLabel);
 
@@ -51,7 +51,7 @@ public class MainFrame extends Frame {
 		this.add(problemIDTextField);
 
 		Label bojIDLabel = new Label(BOJ_ID_LABEL);
-		bojIDLabel.setBounds(25, 100, 90, 20);
+		bojIDLabel.setBounds(20, 100, 95, 20);
 		bojIDLabel.setFont(new Font(null, Font.PLAIN, 18));
 		this.add(bojIDLabel);
 
@@ -60,7 +60,7 @@ public class MainFrame extends Frame {
 		this.add(bojIDTextField);
 
 		Label bojPasswordLabel = new Label(BOJ_PW_LABEL);
-		bojPasswordLabel.setBounds(25, 150, 90, 20);
+		bojPasswordLabel.setBounds(20, 150, 95, 20);
 		bojPasswordLabel.setFont(new Font(null, Font.PLAIN, 18));
 		this.add(bojPasswordLabel);
 
