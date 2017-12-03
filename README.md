@@ -72,7 +72,7 @@ BOJ-PSJ
 > 1. 정답 코드를 작성합니다. (반드시 **src > boj_문제번호 > Main.java** 형태로 저장해주세요.)
 > 2. BOJ SUBMITTER를 실행해주세요. (**src > boj_submitter > Main.java**를 실행해주세요.)
 > 3. 아래 그림과 같이 제출하려는 문제 번호, 백준 온라인 저지 아이디 및 비밀번호를 입력하시고 **Submit** 버튼을 클릭해주세요.
-<img src="https://raw.githubusercontent.com/devetude/BOJ-PSJ/master/images/boj_submitter.png" width="200px" />
+<img src="https://raw.githubusercontent.com/devetude/BOJ-PSJ/master/images/boj_submitter.png" style="width: 300px; border-radius: 25px;" />
 
 # 라이센스
 본 프로젝트는 Apache 2.0 License를 따릅니다. http://www.apache.org/licenses/LICENSE-2.0
