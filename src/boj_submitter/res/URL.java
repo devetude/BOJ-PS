@@ -1,7 +1,7 @@
 package boj_submitter.res;
 
 /**
- * url 클래스
+ * URL 클래스
  *
  * @author devetude
  */

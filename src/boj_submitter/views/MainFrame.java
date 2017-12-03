@@ -15,6 +15,11 @@ import java.awt.event.WindowListener;
 import boj_submitter.controllers.Process;
 import boj_submitter.res.User;
 
+/**
+ * 메인 프레임 클래스
+ * 
+ * @author devetude
+ */
 public class MainFrame extends Frame {
 	private static final int WIDTH = 300;
 	private static final int HEIGHT = 270;
@@ -120,7 +125,7 @@ public class MainFrame extends Frame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String problemID = problemIDTextField.getText();
-			String source = Process.getSource(problemID);
+			String source = Process.getSourceCode(problemID);
 
 			if (source == null) {
 				new MainDialog(mainFrame, FAIL_TO_READ_CODE);

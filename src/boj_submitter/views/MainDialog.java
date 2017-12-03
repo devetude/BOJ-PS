@@ -9,12 +9,23 @@ import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+/**
+ * 메인 다이얼로그 클래스
+ * 
+ * @author devetude
+ */
 public class MainDialog extends Dialog {
 	private static final int WIDTH = 300;
 	private static final int HEIGHT = 100;
 
 	private static final String DIALOG_TITLE = "Notice";
 
+	/**
+	 * 생성자
+	 * 
+	 * @param owner
+	 * @param msg
+	 */
 	public MainDialog(Frame owner, String msg) {
 		super(owner);
 

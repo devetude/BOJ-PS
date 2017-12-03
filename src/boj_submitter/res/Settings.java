@@ -5,7 +5,7 @@ package boj_submitter.res;
  * 
  * @author devetude
  */
-public class Setting {
+public class Settings {
 	// 언어 코드 상수 (Java : 3)
 	public static final String LANGUAGE_CODE = "3";
 

@@ -4,9 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-import boj_submitter.res.Setting;
+import boj_submitter.res.Settings;
 import boj_submitter.res.URL;
 
 /**
@@ -75,8 +74,8 @@ public class Process {
 		else {
 			Map<String, String> params = new HashMap<String, String>();
 			params.put("problem_id", problemID);
-			params.put("language", Setting.LANGUAGE_CODE);
-			params.put("code_open", Setting.CODE_OPEN);
+			params.put("language", Settings.LANGUAGE_CODE);
+			params.put("code_open", Settings.CODE_OPEN);
 			params.put("csrf_key", csrfKey);
 			params.put("source", source);
 
@@ -91,16 +90,16 @@ public class Process {
 	}
 
 	/**
-	 * 소스를 읽어오는 메소드
+	 * 소스 코드를 읽어오는 메소드
 	 * 
 	 * @param problemID
 	 * @return
 	 */
-	public static String getSource(String problemID) {
+	public static String getSourceCode(String problemID) {
 		BufferedReader br = null;
 
 		try {
-			br = new BufferedReader(new FileReader(Setting.SRC_PATH.replace("{problem_id}", problemID)));
+			br = new BufferedReader(new FileReader(Settings.SRC_PATH.replace("{problem_id}", problemID)));
 			String line = null;
 			StringBuilder sb = new StringBuilder();
 
