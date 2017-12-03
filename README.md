@@ -66,6 +66,9 @@ BOJ-PSJ
 ...
 ```
 
+# BOJ SUBMITTER 이용하기
+**BOJ SUBMITTER**는 매번 백준 온라인 저지에 정답 코드를 복사 및 붙여넣기를 반복하는 당신께 다음과 같은 기능을 제공합니다. 코드를 보시려면 **src > boj_submitter > Main.java**를 보시면 됩니다.
+
 # 라이센스
 본 프로젝트는 Apache 2.0 License를 따릅니다. http://www.apache.org/licenses/LICENSE-2.0
 
