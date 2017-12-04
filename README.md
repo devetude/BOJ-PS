@@ -34,7 +34,7 @@
 </ul>
       
 # 1000번 예제 소스
-Java를 이용한 **1000번 문제 풀이**는 아래와 같습니다.
+Java를 이용한 [1000번 문제 풀이](https://github.com/devetude/BOJ-PSJ/blob/master/src/boj_1000/Main.java)는 아래와 같습니다.
 ```java
 import java.util.*;
 
@@ -67,7 +67,7 @@ BOJ-PSJ
 ```
 
 # BOJ SUBMITTER 이용하기
-**BOJ SUBMITTER**는 매번 백준 온라인 저지에 정답 코드를 복사 및 붙여넣기를 반복하는 당신께 다음과 같은 편리한 기능을 제공합니다. 코드를 보시려면 **[src > boj_submitter > Main.java](https://github.com/devetude/BOJ-PSJ/tree/master/src/boj_submitter)**를 보시면 됩니다.
+**BOJ SUBMITTER**는 매번 백준 온라인 저지에 정답 코드를 복사 및 붙여넣기를 반복하는 당신께 다음과 같은 편리한 기능을 제공합니다. 코드를 보시려면 [src > boj_submitter > Main.java](https://github.com/devetude/BOJ-PSJ/tree/master/src/boj_submitter)를 보시면 됩니다.
 > **사용방법:**
 > 1. 정답 코드를 작성합니다. (반드시 **src > boj_문제번호 > Main.java** 형태로 저장해주세요.)
 > 2. BOJ SUBMITTER를 실행해주세요. (**src > boj_submitter > Main.java**를 실행해주세요.)
