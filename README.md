@@ -75,7 +75,7 @@ BOJ-PSJ
 <img src="https://raw.githubusercontent.com/devetude/BOJ-PSJ/master/images/boj_submitter.png" width="350px" />
 
 # 라이센스
-본 프로젝트는 Apache 2.0 License를 따릅니다. http://www.apache.org/licenses/LICENSE-2.0
+본 프로젝트는 [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)를 따릅니다.
 
 # 문의사항
 기타 문의사항이 있으실 경우 아래의 **문의 수단**으로 연락해주세요.
