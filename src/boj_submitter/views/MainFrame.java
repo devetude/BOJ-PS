@@ -35,9 +35,12 @@ public class MainFrame extends Frame {
 	private static final String FAIL_TO_SUBMIT = "Fail to submit.";
 	private static final String SUBMIT_SUCCESS = "Submit success.";
 
+	private static boolean isProcessing = false;
+
 	private TextField problemIDTextField;
 	private TextField bojIDTextField;
 	private TextField bojPasswordTextField;
+	private Button submitButton;
 
 	public MainFrame() {
 		this.setTitle(FRAME_TITLE);
@@ -74,7 +77,7 @@ public class MainFrame extends Frame {
 		bojPasswordTextField.setBounds(130, 150, 145, 20);
 		this.add(bojPasswordTextField);
 
-		Button submitButton = new Button(SUBMIT_BUTTON);
+		submitButton = new Button(SUBMIT_BUTTON);
 		submitButton.setBounds(75, 200, 150, 40);
 		submitButton.addActionListener(new SubmitButtonActionListener(this));
 		this.add(submitButton);
@@ -124,24 +127,38 @@ public class MainFrame extends Frame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			String problemID = problemIDTextField.getText();
-			String source = Process.getSourceCode(problemID);
+			if (isProcessing)
+				return;
 
-			if (source == null) {
-				new MainDialog(mainFrame, FAIL_TO_READ_CODE);
-			}
+			submitButton.setEnabled(false);
+			isProcessing = true;
 
-			else if (!Process.signIn(bojIDTextField.getText(), bojPasswordTextField.getText())) {
-				new MainDialog(mainFrame, FAIL_TO_LOGIN_BOJ);
-			}
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					String problemID = problemIDTextField.getText();
+					String source = Process.getSourceCode(problemID);
 
-			else if (!Process.submit(problemID, source)) {
-				new MainDialog(mainFrame, FAIL_TO_SUBMIT);
-			}
+					if (source == null) {
+						new MainDialog(mainFrame, FAIL_TO_READ_CODE);
+					}
 
-			else {
-				new MainDialog(mainFrame, SUBMIT_SUCCESS);
-			}
+					else if (!Process.signIn(bojIDTextField.getText(), bojPasswordTextField.getText())) {
+						new MainDialog(mainFrame, FAIL_TO_LOGIN_BOJ);
+					}
+
+					else if (!Process.submit(problemID, source)) {
+						new MainDialog(mainFrame, FAIL_TO_SUBMIT);
+					}
+
+					else {
+						new MainDialog(mainFrame, SUBMIT_SUCCESS);
+					}
+
+					isProcessing = false;
+					submitButton.setEnabled(true);
+				}
+			}).start();
 		}
 	}
 }
