@@ -25,17 +25,13 @@ class Trie {
             val child = current.children[c] ?: Node().also { current.children[c] = it }
             current = child
         }
-        current = current.copy(isTerminal = true)
     }
 
     fun startsWith(prefix: String): Boolean {
         var current = root
         prefix.forEach { c -> current = current.children[c] ?: return false }
-        return !current.isTerminal
+        return true
     }
 }
 
-data class Node(
-    val children: HashMap<Char, Node> = HashMap(),
-    val isTerminal: Boolean = false
-)
+data class Node(val children: HashMap<Char, Node> = HashMap())
