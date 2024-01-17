@@ -1,18 +1,25 @@
 package boj_10869
 
-fun main() {
-    val (a, b) = readln().split(" ").map { it.toInt() }
+import java.io.BufferedWriter
+import java.util.StringTokenizer
 
-    val result = buildString {
-        appendLine(value = a + b)
-        appendLine(value = a - b)
-        appendLine(value = a * b)
-        appendLine(value = a / b)
-        appendLine(value = a % b)
-    }
+fun main() {
+    val st = StringTokenizer(readln())
+    val a = st.nextToken().toInt()
+    val b = st.nextToken().toInt()
 
     System.out.bufferedWriter().use {
-        it.write(result)
-        it.flush()
+        with(it) {
+            writeLine(n = a + b)
+            writeLine(n = a - b)
+            writeLine(n = a * b)
+            writeLine(n = a / b)
+            writeLine(n = a % b)
+        }
     }
+}
+
+fun BufferedWriter.writeLine(n: Int) {
+    write(n.toString())
+    write("\n")
 }
