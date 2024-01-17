@@ -5,8 +5,10 @@ import java.util.StringTokenizer
 fun main() {
     val n = readln().toInt()
     val st = StringTokenizer(readln())
-    val nums = ByteArray(n) { st.nextToken().toByte() }
-    val v = readln().toByte()
+    val v = readln()
 
-    print(nums.count { it == v })
+    var count = 0
+    repeat(n) { if (st.nextToken() == v) ++count }
+
+    print(count)
 }
