@@ -9,6 +9,5 @@ fun main() {
         values[1] == values[2] -> values[1] * 100 + 1_000
         else -> values[2] * 100
     }
-
-    println(result)
+    print(result)
 }
