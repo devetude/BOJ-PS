@@ -1,3 +1,8 @@
 package boj_2752
 
-fun main() = print(readln().split(" ").sorted().joinToString(separator = " "))
+fun main() = print(
+    readln()
+        .split(" ")
+        .sortedBy { it.toInt() }
+        .joinToString(separator = " ")
+)
