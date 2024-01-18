@@ -3,7 +3,7 @@ package boj_5397
 import java.util.Stack
 
 fun main() {
-    System.out.bufferedWriter().use { bw ->
+    val result = buildString {
         repeat(readln().toInt()) {
             val leftStack = Stack<Char>()
             val rightStack = Stack<Char>()
@@ -17,11 +17,14 @@ fun main() {
                 }
             }
 
-            for (i in leftStack.indices) bw.write(leftStack[i].toString())
-            while (rightStack.isNotEmpty()) bw.write(rightStack.pop().toString())
-            bw.write("\n")
+            leftStack.forEach(::append)
+            for (i in rightStack.lastIndex downTo 0) append(rightStack[i])
+            appendLine()
         }
+    }
 
-        bw.flush()
+    System.out.bufferedWriter().use {
+        it.write(result)
+        it.flush()
     }
 }
