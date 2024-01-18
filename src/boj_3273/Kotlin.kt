@@ -5,9 +5,8 @@ import java.util.StringTokenizer
 fun main() {
     val n = readln().toInt()
 
-    val a = IntArray(n)
     val st = StringTokenizer(readln())
-    repeat(n) { a[it] = st.nextToken().toInt() }
+    val a = IntArray(n) { st.nextToken().toInt() }
 
     val x = readln().toInt()
 
