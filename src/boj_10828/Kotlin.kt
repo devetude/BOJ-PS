@@ -1,40 +1,32 @@
 package boj_10828
 
 import java.util.Stack
+import java.util.StringTokenizer
 
 fun main() {
-    val n = readln().toInt()
-
-    System.out.bufferedWriter().use { bw ->
+    val result = buildString {
         val stack = Stack<String>()
-
-        repeat(n) {
-            val args = readln().split(" ")
-            when (args.first()) {
-                "push" -> stack.push(args[1])
-
-                "pop" -> {
-                    bw.write(if (stack.isNotEmpty()) stack.pop() else "-1")
-                    bw.write("\n")
-                }
-
-                "size" -> {
-                    bw.write(stack.size.toString())
-                    bw.write("\n")
-                }
-
-                "empty" -> {
-                    bw.write(if (stack.isEmpty()) "1" else "0")
-                    bw.write("\n")
-                }
-
-                else -> {
-                    bw.write(if (stack.isNotEmpty()) stack.peek() else "-1")
-                    bw.write("\n")
-                }
+        repeat(readln().toInt()) {
+            val st = StringTokenizer(readln())
+            val cmd = st.nextToken()
+            when {
+                cmd[1] == 'u' -> stack.push(st.nextToken())
+                cmd[0] == 't' -> appendLine(stack.topOrMinus1())
+                cmd[0] == 's' -> appendLine(stack.size)
+                cmd[0] == 'e' -> appendLine(stack.isEmptyToInt())
+                else -> appendLine(stack.popOrMinus1())
             }
         }
+    }
 
-        bw.flush()
+    System.out.bufferedWriter().use {
+        it.write(result)
+        it.flush()
     }
 }
+
+fun Stack<String>.popOrMinus1(): String = if (isNotEmpty()) pop() else "-1"
+
+fun Stack<String>.isEmptyToInt(): Int = if (isEmpty()) 1 else 0
+
+fun Stack<String>.topOrMinus1(): String = if (isNotEmpty()) peek() else "-1"
