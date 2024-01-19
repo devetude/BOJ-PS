@@ -5,11 +5,9 @@ import java.util.Stack
 fun main() {
     val stack = Stack<Int>()
     repeat(readln().toInt()) {
-        when (val num = readln().toInt()) {
-            0 -> stack.pop()
-            else -> stack.push(num)
-        }
+        val num = readln().toInt()
+        if (0 < num) stack.push(num) else stack.pop()
     }
 
-    println(stack.sum())
+    print(stack.sum())
 }
