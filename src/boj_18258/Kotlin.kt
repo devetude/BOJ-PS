@@ -1,20 +1,21 @@
 package boj_18258
 
+import java.util.LinkedList
 import java.util.StringTokenizer
 
 fun main() {
-    val n = readln().toInt()
-    val queue = Queue(n)
     val result = buildString {
-        repeat(n) {
+        val queue = LinkedList<String>()
+        repeat(readln().toInt()) {
             val st = StringTokenizer(readln())
-            when (st.nextToken()) {
-                "push" -> queue.push(st.nextToken().toInt())
-                "pop" -> appendLine(queue.pop())
-                "size" -> appendLine(queue.size())
-                "empty" -> appendLine(if (queue.isEmpty()) 1 else 0)
-                "front" -> appendLine(queue.front())
-                else -> appendLine(queue.back())
+            val cmd = st.nextToken()
+            when {
+                cmd[1] == 'u' -> queue.offer(st.nextToken())
+                cmd[0] == 's' -> appendLine(queue.size)
+                cmd[0] == 'e' -> appendLine(queue.isEmptyToInt())
+                cmd[0] == 'f' -> appendLine(queue.frontOrMinus1())
+                cmd[0] == 'b' -> appendLine(queue.backOrMinus1())
+                else -> appendLine(queue.popOrMinus1())
             }
         }
     }
@@ -25,22 +26,10 @@ fun main() {
     }
 }
 
-class Queue(initSize: Int) {
-    private val items: IntArray = IntArray(initSize)
-    private var front: Int = 0
-    private var back: Int = 0
+fun LinkedList<String>.popOrMinus1(): String = if (isNotEmpty()) poll() else "-1"
 
-    fun push(x: Int) {
-        items[back++] = x
-    }
+fun LinkedList<String>.isEmptyToInt(): Int = if (isEmpty()) 1 else 0
 
-    fun pop(): Int = if (isEmpty()) -1 else items[front++]
+fun LinkedList<String>.frontOrMinus1(): String = if (isNotEmpty()) peek() else "-1"
 
-    fun size(): Int = back - front
-
-    fun isEmpty(): Boolean = size() == 0
-
-    fun front(): Int = if (isEmpty()) -1 else items[front]
-
-    fun back(): Int = if (isEmpty()) -1 else items[back - 1]
-}
+fun LinkedList<String>.backOrMinus1(): String = if (isNotEmpty()) peekLast() else "-1"
