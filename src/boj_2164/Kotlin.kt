@@ -1,16 +1,17 @@
 package boj_2164
 
+import java.util.LinkedList
+
 fun main() {
     val n = readln().toInt()
 
-    val queue = ArrayDeque<Int>(initialCapacity = n + 1)
-        .apply {
-            repeat(n) { addLast(element = it + 1) }
-            while (1 < size) {
-                removeFirst()
-                addLast(removeFirst())
-            }
-        }
+    val queue = LinkedList<Int>()
+    repeat(n) { queue.offer(it + 1) }
 
-    println(queue.first())
+    while (1 < queue.size) {
+        queue.poll()
+        queue.offerLast(queue.poll())
+    }
+
+    print(queue.peek())
 }
