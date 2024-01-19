@@ -5,22 +5,20 @@ import java.util.StringTokenizer
 
 fun main() {
     val n = readln().toInt()
-
     val st = StringTokenizer(readln())
-    val nums = IntArray(n)
-    repeat(n) { nums[it] = st.nextToken().toInt() }
 
-    val stack = Stack<Pair<Int, Int>>()
-    val result = IntArray(n)
-    for (i in n - 1 downTo 0) {
-        while (stack.isNotEmpty() && stack.peek().second < nums[i]) {
-            result[stack.pop().first] = i + 1
+    val result = buildString {
+        val stack = Stack<Pair<Int, Int>>()
+        repeat(n) {
+            val height = st.nextToken().toInt()
+            while (stack.isNotEmpty() && stack.peek().second <= height) stack.pop()
+            append(if (stack.isNotEmpty()) stack.peek().first else 0, ' ')
+            stack.push(it + 1 to height)
         }
-        stack.push(i to nums[i])
     }
 
     System.out.bufferedWriter().use {
-        it.write(result.joinToString(separator = " "))
+        it.write(result)
         it.flush()
     }
 }
