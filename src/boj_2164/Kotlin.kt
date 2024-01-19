@@ -1,17 +1,16 @@
 package boj_2164
 
-import java.util.LinkedList
-
 fun main() {
     val n = readln().toInt()
 
-    val queue = LinkedList<Int>()
-    repeat(n) { queue.offer(it + 1) }
+    val arr = IntArray(size = (n shl 1) - 1) { it + 1 }
+    var first = 0
+    var last = n - 1
 
-    while (1 < queue.size) {
-        queue.poll()
-        queue.offerLast(queue.poll())
+    while (first < last) {
+        ++first
+        arr[++last] = arr[first++]
     }
 
-    print(queue.peek())
+    print(arr[first])
 }
