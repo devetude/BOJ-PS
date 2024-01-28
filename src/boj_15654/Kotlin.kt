@@ -4,7 +4,9 @@ import java.util.StringTokenizer
 
 const val SPACE: Char = ' '
 
+lateinit var nums: IntArray
 lateinit var isVisited: BooleanArray
+
 val resultBuilder: StringBuilder = StringBuilder()
 
 fun main() {
@@ -13,12 +15,12 @@ fun main() {
     val m = st.nextToken().toInt()
 
     st = StringTokenizer(readln())
-    val arr = IntArray(n) { st.nextToken().toInt() }.apply { sort() }
+    nums = IntArray(n) { st.nextToken().toInt() }.apply { sort() }
 
     isVisited = BooleanArray(n)
-    arr.forEachIndexed { i, num ->
+    nums.forEachIndexed { i, num ->
         isVisited[i] = true
-        arr.buildPerm(m = m - 1, StringBuilder().appendSpace(num))
+        buildPerm(m = m - 1, StringBuilder().appendSpace(num))
         isVisited[i] = false
     }
 
@@ -28,13 +30,13 @@ fun main() {
     }
 }
 
-fun IntArray.buildPerm(m: Int, permBuilder: StringBuilder) {
+fun buildPerm(m: Int, permBuilder: StringBuilder) {
     if (m == 0) {
         resultBuilder.appendLine(permBuilder)
         return
     }
 
-    forEachIndexed { i, num ->
+    nums.forEachIndexed { i, num ->
         if (isVisited[i]) return@forEachIndexed
 
         isVisited[i] = true
