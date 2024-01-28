@@ -15,7 +15,7 @@ fun main() {
     st = StringTokenizer(readln())
     nums = IntArray(n) { st.nextToken().toInt() }
 
-    for (i in nums.indices) buildSubArr(i, nums[i])
+    nums.forEachIndexed { i, num -> buildSubArr(i, num) }
 
     print(subArrCount)
 }
