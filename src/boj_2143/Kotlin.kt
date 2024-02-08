@@ -29,10 +29,9 @@ fun main() {
 
 fun LongArray.toSubSums(): MutableList<Long> {
     val subSums = mutableListOf<Long>()
-    var i = 0
     for (left in -1 until size) {
         for (right in lastIndex downTo left + 1) {
-            subSums.add(i++, element = this[right] - if (-1 < left) this[left] else 0L)
+            subSums.add(this[right] - if (-1 < left) this[left] else 0L)
         }
     }
 
