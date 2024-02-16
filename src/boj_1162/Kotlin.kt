@@ -25,7 +25,7 @@ fun main() {
 
     val minTimes = Array(size = k + 1) { LongArray(size = n + 1) { Long.MAX_VALUE } }
         .apply { this[0][1] = 0L }
-
+    
     var minTime = Long.MAX_VALUE
     while (pq.isNotEmpty()) {
         val (count, current, time) = pq.poll()
