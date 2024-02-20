@@ -3,7 +3,7 @@ package boj_4256
 import java.util.StringTokenizer
 
 lateinit var preorder: IntArray
-lateinit var inorder: IntArray
+lateinit var inorderIdxOf: IntArray
 val resultBuilder: StringBuilder = StringBuilder()
 
 fun main() {
@@ -14,7 +14,8 @@ fun main() {
         preorder = IntArray(n) { st.nextToken().toInt() }
 
         st = StringTokenizer(readln())
-        inorder = IntArray(n) { st.nextToken().toInt() }
+        inorderIdxOf = IntArray(size = n + 1)
+        repeat(n) { inorderIdxOf[st.nextToken().toInt()] = it }
 
         buildPostorder()
         resultBuilder.appendLine()
@@ -32,7 +33,7 @@ fun buildPostorder(
     endIdx: Int = preorder.lastIndex
 ) {
     val value = preorder[preorderIdx]
-    val inorderIdx = inorder.indexOf(value)
+    val inorderIdx = inorderIdxOf[value]
 
     val leftEndIdx = inorderIdx - 1
     if (beginIdx <= leftEndIdx) {
