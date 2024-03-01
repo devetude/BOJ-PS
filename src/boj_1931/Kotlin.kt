@@ -1,27 +1,22 @@
 package boj_1931
 
+import java.util.StringTokenizer
+
 fun main() {
     val n = readln().toInt()
-    val schedules = List(n) {
-        val row = readln().split(" ").map { it.toInt() }
-        Schedule(startTime = row[0], endTime = row[1])
+    val schedules = Array(n) {
+        val st = StringTokenizer(readln())
+        st.nextToken().toInt() to st.nextToken().toInt()
+    }.apply { sortWith(compareBy<Pair<Int, Int>> { it.second }.thenBy { it.first }) }
+
+    var current = 0
+    var size = 0
+    schedules.forEach { (start, end) ->
+        if (current <= start) {
+            ++size
+            current = end
+        }
     }
 
-    var lastEndTime = 0
-    var availableMaxRoomCount = 0
-
-    schedules.sorted()
-        .forEach {
-            if (lastEndTime <= it.startTime) {
-                lastEndTime = it.endTime
-                ++availableMaxRoomCount
-            }
-        }
-
-    println(availableMaxRoomCount)
-}
-
-data class Schedule(val startTime: Int, val endTime: Int) : Comparable<Schedule> {
-    override fun compareTo(other: Schedule): Int =
-        if (endTime == other.endTime) startTime - other.startTime else endTime - other.endTime
+    print(size)
 }
