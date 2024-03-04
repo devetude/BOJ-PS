@@ -4,25 +4,22 @@ import java.util.StringTokenizer
 
 fun main() {
     val n = readln().toInt()
-
     val st = StringTokenizer(readln())
-    val budgets = IntArray(n) { st.nextToken().toInt() }.apply { sort() }
-    val subSums = budgets.runningReduce { acc, budget -> acc + budget }
-
+    val budgets = IntArray(n) { st.nextToken().toInt() }
     val m = readln().toInt()
 
-    var low = 0
-    var high = budgets.last()
-    while (low <= high) {
-        val mid = low + high shr 1
-        val idx = budgets.binarySearch(mid)
-        val sum = when {
-            idx < -1 -> subSums[-idx - 2] + (n + idx + 1) * mid
-            idx == -1 -> n * mid
-            else -> subSums[idx] + (n - idx - 1) * mid
+    budgets.sort()
+    var min = 1
+    var max = budgets.last()
+    while (min <= max) {
+        val mid = min + max shr 1
+        val sum = budgets.sumOf { if (mid < it) mid else it }
+        if (m < sum) {
+            max = mid - 1
+        } else {
+            min = mid + 1
         }
-        if (sum <= m) low = mid + 1 else high = mid - 1
     }
 
-    print(high)
+    print(max)
 }
