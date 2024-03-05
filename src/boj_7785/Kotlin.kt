@@ -3,21 +3,15 @@ package boj_7785
 import java.util.StringTokenizer
 
 fun main() {
-    val n = readln().toInt()
-    val names = HashSet<String>()
-    repeat(n) {
+    val set = HashSet<String>()
+    repeat(readln().toInt()) {
         val st = StringTokenizer(readln())
         val name = st.nextToken()
-        when (st.nextToken()) {
-            "enter" -> names.add(name)
-            else -> names.remove(name)
-        }
+        if (st.nextToken()[0] == 'e') set.add(name) else set.remove(name)
     }
 
-    val result = names.sortedDescending().joinToString(separator = "\n")
-
     System.out.bufferedWriter().use {
-        it.write(result)
+        it.write(set.sortedDescending().joinToString(separator = "\n"))
         it.flush()
     }
 }
