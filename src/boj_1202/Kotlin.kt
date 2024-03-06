@@ -7,37 +7,27 @@ fun main() {
     var st = StringTokenizer(readln())
     val n = st.nextToken().toInt()
     val k = st.nextToken().toInt()
-    val jewels = ArrayList<Jewel>(n)
-    repeat(n) {
+
+    val jewels = Array(n) {
         st = StringTokenizer(readln())
-        val m = st.nextToken().toInt()
-        val v = st.nextToken().toInt()
-        jewels.add(Jewel(m, v))
-    }
-    val capacities = IntArray(k)
-    repeat(k) {
-        val c = readln().toInt()
-        capacities[it] = c
-    }
+        st.nextToken().toInt() to st.nextToken().toInt()
+    }.apply { sortBy { it.first } }
 
-    jewels.sortBy { it.m }
-    capacities.sort()
-    val pq = PriorityQueue<Int>(compareByDescending { it })
+    val capacities = IntArray(k) { readln().toInt() }.apply { sort() }
+
+    val values = PriorityQueue<Int>(reverseOrder())
     var maxValue = 0L
-    var idx = 0
+    var i = 0
     capacities.forEach { capacity ->
-        while (idx < jewels.size) {
-            val jewel = jewels[idx]
-            if (capacity < jewel.m) break
+        while (i < jewels.size) {
+            val jewel = jewels[i]
+            if (capacity < jewel.first) break
 
-            pq.offer(jewel.v)
-            ++idx
+            values.offer(jewel.second)
+            ++i
         }
-
-        if (pq.isNotEmpty()) maxValue += pq.poll()
+        if (values.isNotEmpty()) maxValue += values.poll()
     }
 
-    println(maxValue)
+    print(maxValue)
 }
-
-data class Jewel(val m: Int = 0, val v: Int = 0)
