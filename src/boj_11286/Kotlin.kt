@@ -7,21 +7,20 @@ fun main() {
     val n = readln().toInt()
 
     val pq = PriorityQueue(n, compareBy<Int>(::abs).thenBy { it })
-    val result = buildString {
-        repeat(n) {
-            when (val x = readln().toInt()) {
-                0 -> {
-                    val absMin = if (pq.isEmpty()) 0 else pq.poll()
-                    appendLine(absMin)
-                }
-
-                else -> pq.offer(x)
-            }
+    val sb = StringBuilder()
+    repeat(n) {
+        val x = readln().toInt()
+        if (x != 0) {
+            pq.offer(x)
+            return@repeat
         }
+
+        val min = if (pq.isEmpty()) 0 else pq.poll()
+        sb.appendLine(min)
     }
 
     System.out.bufferedWriter().use {
-        it.write(result)
+        it.write(sb.toString())
         it.flush()
     }
 }
