@@ -23,18 +23,21 @@ fun main() {
     val s = st.nextToken().toInt()
     val e = st.nextToken().toInt()
 
-    val weights = IntArray(size = n + 1) { Int.MAX_VALUE }.apply { this[s] = 0 }
-    val pq = PriorityQueue<Int>().apply { offer(s) }
-    val parents = IntArray(size = n + 1)
-    while (pq.isNotEmpty()) {
-        val u = pq.poll()
-        adjacencyList[u].forEach { (v, w) ->
-            val nextCost = weights[u] + w
-            if (nextCost < weights[v]) {
-                weights[v] = nextCost
-                parents[v] = u
-                pq.offer(v)
-            }
+    val minDistanceTo = IntArray(size = n + 1) { Int.MAX_VALUE }.apply { this[s] = 0 }
+    val nextVertexes = PriorityQueue<Pair<Int, Int>>(compareBy { it.second })
+        .apply { offer(s to 0) }
+    val parentOf = IntArray(size = n + 1)
+    while (nextVertexes.isNotEmpty()) {
+        val (u, distance) = nextVertexes.poll()
+        if (minDistanceTo[u] < distance) continue
+
+        adjacencyList[u].forEach { (v, distance) ->
+            val nextDistance = minDistanceTo[u] + distance
+            if (minDistanceTo[v] <= nextDistance) return@forEach
+
+            minDistanceTo[v] = nextDistance
+            parentOf[v] = u
+            nextVertexes.offer(v to nextDistance)
         }
     }
 
@@ -42,16 +45,17 @@ fun main() {
         var v = e
         while (0 < v) {
             add(v)
-            v = parents[v]
+            v = parentOf[v]
         }
         reverse()
     }
 
     val result = buildString {
-        appendLine(weights[e])
+        appendLine(minDistanceTo[e])
         appendLine(paths.size)
         append(paths.joinToString(separator = " "))
     }
+
     System.out.bufferedWriter().use {
         it.write(result)
         it.flush()
