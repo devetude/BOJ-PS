@@ -20,26 +20,25 @@ fun main() {
         adjacentList[u].add(Vertex(v, w))
     }
 
-    val minWeights = IntArray(size = v + 1) { Int.MAX_VALUE }
-    minWeights[k] = 0
-    val pq = PriorityQueue<Vertex>()
-    pq.offer(Vertex(k, w = 0))
-    while (pq.isNotEmpty()) {
-        val vertex = pq.poll()
+    val minDistanceTo = IntArray(size = v + 1) { Int.MAX_VALUE }.apply { this[k] = 0 }
+    val nextVertexes = PriorityQueue<Vertex>().apply { offer(Vertex(k, distance = 0)) }
+    while (nextVertexes.isNotEmpty()) {
+        val vertex = nextVertexes.poll()
+        if (minDistanceTo[vertex.num] < vertex.distance) continue
 
-        adjacentList[vertex.v].forEach { nextVertex ->
-            val nextWeight = minWeights[vertex.v] + nextVertex.w
-            if (minWeights[nextVertex.v] <= nextWeight) return@forEach
+        adjacentList[vertex.num].forEach { nextVertex ->
+            val distanceToNext = minDistanceTo[vertex.num] + nextVertex.distance
+            if (minDistanceTo[nextVertex.num] <= distanceToNext) return@forEach
 
-            minWeights[nextVertex.v] = nextWeight
-            pq.offer(Vertex(nextVertex.v, nextWeight))
+            minDistanceTo[nextVertex.num] = distanceToNext
+            nextVertexes.offer(Vertex(nextVertex.num, distanceToNext))
         }
     }
+
     val result = buildString {
         for (i in 1..v) {
-            val minWeight = minWeights[i]
-            if (minWeight < Int.MAX_VALUE) {
-                appendLine(minWeight)
+            if (minDistanceTo[i] < Int.MAX_VALUE) {
+                appendLine(minDistanceTo[i])
                 continue
             }
 
@@ -53,6 +52,6 @@ fun main() {
     }
 }
 
-data class Vertex(val v: Int, val w: Int) : Comparable<Vertex> {
-    override fun compareTo(other: Vertex): Int = compareValuesBy(a = this, other) { it.w }
+private data class Vertex(val num: Int, val distance: Int) : Comparable<Vertex> {
+    override fun compareTo(other: Vertex): Int = compareValuesBy(a = this, other) { it.distance }
 }
