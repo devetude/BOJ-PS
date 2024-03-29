@@ -1,8 +1,11 @@
 package boj_10808
 
 fun main() {
-    val counts = IntArray(size = 26)
-    readln().forEach { ++counts[it - 'a'] }
+    val frequencyOf = IntArray(size = 26)
+    readln().forEach { ++frequencyOf[it - 'a'] }
 
-    print(counts.joinToString(separator = " "))
+    System.out.bufferedWriter().use {
+        it.write(frequencyOf.joinToString(separator = " "))
+        it.flush()
+    }
 }
