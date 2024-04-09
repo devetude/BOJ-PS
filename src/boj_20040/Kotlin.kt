@@ -6,11 +6,8 @@ private lateinit var parentOf: IntArray
 
 fun main() {
     var st = StringTokenizer(readln())
-    val n = st.nextToken().toInt()
-    val m = st.nextToken().toInt()
-
-    parentOf = IntArray(n) { it }
-    repeat(m) {
+    parentOf = IntArray(st.nextToken().toInt()) { it }
+    repeat(st.nextToken().toInt()) {
         st = StringTokenizer(readln())
         val x = st.nextToken().toInt()
         val y = st.nextToken().toInt()
